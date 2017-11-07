@@ -832,12 +832,10 @@ static void addBasicVariable(int minI, int minJ, double *S, double *D,
 }
 
 
-
-
-
 /**********************
     printSolution
 **********************/
+#if DEBUG_LEVEL > 0
 static void printSolution()
 {
   node2_t *P;
@@ -859,5 +857,4 @@ static void printSolution()
 
   printf("COST = %f\n", totalCost);
 }
-
-
+#endif

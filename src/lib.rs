@@ -80,7 +80,7 @@ pub fn bow_to_features_weights(doc_bow: &[f32]) -> (Vec<i32>, Vec<f32>) {
     (features, weights)
 }
 
-pub fn emd_w(doc_bow1: &[f32], doc_bow2: &[f32], distance_matrix: &[&[f32]]) -> f32 {
+pub fn emd(doc_bow1: &[f32], doc_bow2: &[f32], distance_matrix: &[&[f32]]) -> f32 {
     let sign1 = &mut SignatureT::new(doc_bow1);
     let sign2 = &mut SignatureT::new(doc_bow2);
     let distance = &mut DistFeaturesT::new(distance_matrix);
@@ -137,7 +137,7 @@ mod testing {
             &[3., 13., 8., 33., 3., 0.],
         ];
 
-        let exist = emd_w(&doc_bow1, &doc_bow2, &distance_matrix);
+        let exist = emd(&doc_bow1, &doc_bow2, &distance_matrix);
         let expected = 11.812499f32;
 
         assert_eq!(exist, expected);
@@ -173,12 +173,6 @@ mod bench {
         let distance_base_: Vec<f32> = distance_matrix.concat();
         let distance_matrix_: Vec<_> = distance_base_.as_slice().chunks(sz).collect();
 
-        // for (i, r) in distance_matrix.as_slice().chunks(sz).into_iter().enumerate() {
-        //     println!("{:?}: {:?}", i, r);
-        //     // (i + 1..distance_2d[i].len()).for_each(|j| {
-        //     // })
-        // }
-
-        b.iter(move || emd_w(&doc_bow1, &doc_bow2, &distance_matrix_))
+        b.iter(move || emd(&doc_bow1, &doc_bow2, &distance_matrix_))
     }
 }
