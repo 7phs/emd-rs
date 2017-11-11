@@ -19,6 +19,12 @@
 
 #include "emd.h"
 
+/* DEFINITIONS */
+#define MAX_SIG_SIZE   100
+#define MAX_ITERATIONS 500
+//#define INFINITY       1e20
+#define EPSILON        1e-5
+
 #define DEBUG_LEVEL 0
 /*
  DEBUG_LEVEL:

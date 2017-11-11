@@ -15,12 +15,6 @@
     E-Mail: rubner@cs.stanford.edu   URL: http://vision.stanford.edu/~rubner
 */
 
-/* DEFINITIONS */
-#define MAX_SIG_SIZE   100
-#define MAX_ITERATIONS 500
-//#define INFINITY       1e20
-#define EPSILON        1e-6
-
 typedef struct
 {
   int   n;          /* Number of features in the signature */
