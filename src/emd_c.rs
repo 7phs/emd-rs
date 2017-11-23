@@ -1,14 +1,14 @@
 use libc::{c_float, c_int, c_uint};
 
 #[repr(C)]
-pub struct SignatureT {
+pub(crate) struct SignatureT {
     n: c_int,
     features: *const c_int,
     weights: *const c_float,
 }
 
 impl SignatureT {
-    pub fn new(doc_bow: &[f32]) -> SignatureT {
+    pub(crate) fn new(doc_bow: &[f32]) -> SignatureT {
         let (features, weights) = bow_to_features_weights(doc_bow);
 
         SignatureT {
@@ -20,13 +20,13 @@ impl SignatureT {
 }
 
 #[repr(C)]
-pub struct DistFeaturesT {
+pub(crate) struct DistFeaturesT {
     dim: c_uint,
     distance_matrix: *const c_float,
 }
 
 impl DistFeaturesT {
-    pub fn new(distance_matrix: &[&[f32]]) -> DistFeaturesT {
+    pub(crate) fn new(distance_matrix: &[&[f32]]) -> DistFeaturesT {
         DistFeaturesT {
             dim: distance_matrix.len() as c_uint,
             distance_matrix: distance_matrix.concat().as_ptr(),
@@ -35,7 +35,13 @@ impl DistFeaturesT {
 }
 
 extern "C" {
-    pub fn emd_light(
+    pub(crate) fn emd_light(
+        signature1: *mut SignatureT,
+        signature2: *mut SignatureT,
+        distance: *mut DistFeaturesT
+    ) -> c_float;
+
+    pub(crate) fn emd_dumb(
         signature1: *mut SignatureT,
         signature2: *mut SignatureT,
         distance: *mut DistFeaturesT

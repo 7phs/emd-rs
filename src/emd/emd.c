@@ -88,6 +88,15 @@ float emd_light(signature_t *Signature1, signature_t *Signature2, dist_features_
     return(emd(Signature1, Signature2, Distance, NULL, NULL));
 }
 
+float emd_dumb(signature_t *Signature1, signature_t *Signature2, dist_features_t *Distance)
+{
+  if(Signature1->n >0 && Signature2->n >0 && Distance->dim>0) {
+    return Signature1->Weights[0] + Signature2->Weights[0] + Distance->distanceMatrix[0];
+  }
+
+  return 0.0;
+}
+
 /******************************************************************************
 float emd(signature_t *Signature1, signature_t *Signature2,
 	  float (*Dist)(int *, int *), flow_t *Flow, int *FlowSize)

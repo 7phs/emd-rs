@@ -1,12 +1,5 @@
 use emd_c::{SignatureT, DistFeaturesT, emd_light};
-use libc::c_float;
-
-fn emd_dumb(_: *mut SignatureT,
-            _: *mut SignatureT,
-            _: *mut DistFeaturesT
-) -> c_float {
-    0.0
-}
+//use emd_c::emd_dumb;
 
 pub fn emd(doc_bow1: &[f32], doc_bow2: &[f32], distance_matrix: &[&[f32]]) -> f32 {
     let sign1 = &mut SignatureT::new(doc_bow1);
@@ -14,7 +7,7 @@ pub fn emd(doc_bow1: &[f32], doc_bow2: &[f32], distance_matrix: &[&[f32]]) -> f3
     let distance = &mut DistFeaturesT::new(distance_matrix);
 
     unsafe {
-        //        emd_dumb(sign1, sign2, distance)
+        // emd_dumb(sign1, sign2, distance)
         emd_light(sign1, sign2, distance)
     }
 }
@@ -40,6 +33,7 @@ mod testing {
 
         let exist = emd(&doc_bow1, &doc_bow2, &distance_matrix);
         let expected = 11.812499f32;
+        // let expected = 0.5f32;
 
         assert_eq!(exist, expected);
     }

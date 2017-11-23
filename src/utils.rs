@@ -1,7 +1,10 @@
+#[cfg(test)]
 use rand;
+#[cfg(test)]
 use rand::Rng;
 
-pub fn random_f(probability_zero: f32, max: f32) -> Box<Fn() -> f32> {
+#[cfg(test)]
+pub(crate) fn random_f(probability_zero: f32, max: f32) -> Box<Fn() -> f32> {
     Box::new(move || {
         let mut rng = rand::thread_rng();
 

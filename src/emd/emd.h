@@ -38,6 +38,8 @@ typedef struct
 
 float emd_light(signature_t *Signature1, signature_t *Signature2, dist_features_t *Distance);
 
+float emd_dumb(signature_t *Signature1, signature_t *Signature2, dist_features_t *Distance);
+
 float emd(signature_t *Signature1, signature_t *Signature2,  dist_features_t *Distance, flow_t *Flow, int *FlowSize);
 
 #endif
