@@ -6,7 +6,9 @@
 extern crate libc;
 extern crate rand;
 extern crate test;
+extern crate wordvector as wordvector_base;
 
-mod emd_c;
 pub mod emd;
+pub mod wordvector;
+mod emd_c;
 mod utils;

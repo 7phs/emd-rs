@@ -10,4 +10,4 @@ cc = "1"
 [dependencies]
 rand = "0.3"
 libc = "0.2"
-#clippy = "*"
+wordvector = { path = "../wordvector-rs/" }
