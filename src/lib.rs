@@ -1,7 +1,6 @@
 #![feature(test)]
 #![feature(rand)]
 #![feature(plugin)]
-//#![plugin(clippy)]
 
 extern crate libc;
 extern crate rand;

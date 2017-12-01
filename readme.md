@@ -1,35 +1,43 @@
+EMD idea and source code:
+http://ai.stanford.edu/%7Erubner/emd/default.htm
+
 Run test in one thread:
 
 ```
 cargo test -- --test-threads=1
+cargo test --features "dumb" -- --test-threads=1
 ```
 
 Benchmark result:
 
 ```
-test emd::bench::bench_emd_10  ... bench:       4,392 ns/iter (+/- 691)
-test emd::bench::bench_emd_20  ... bench:       8,401 ns/iter (+/- 3,513)
-test emd::bench::bench_emd_30  ... bench:      83,743 ns/iter (+/- 39,026)
-test emd::bench::bench_emd_40  ... bench:      87,835 ns/iter (+/- 36,107)
-test emd::bench::bench_emd_50  ... bench:     149,364 ns/iter (+/- 26,667)
-test emd::bench::bench_emd_60  ... bench:     176,116 ns/iter (+/- 34,607)
-test emd::bench::bench_emd_70  ... bench:     348,422 ns/iter (+/- 66,775)
-test emd::bench::bench_emd_80  ... bench:     332,171 ns/iter (+/- 57,399)
-test emd::bench::bench_emd_90  ... bench:     458,471 ns/iter (+/- 221,222)
-test emd::bench::bench_emd_100 ... bench:     577,468 ns/iter (+/- 199,593)
+cargo bench -- --test-threads=1
+
+test emd::bench::bench_emd_10  ... bench:       1,901 ns/iter (+/- 314)
+test emd::bench::bench_emd_20  ... bench:      12,725 ns/iter (+/- 1,965)
+test emd::bench::bench_emd_30  ... bench:      81,693 ns/iter (+/- 13,987)
+test emd::bench::bench_emd_40  ... bench:      63,049 ns/iter (+/- 11,429)
+test emd::bench::bench_emd_50  ... bench:     155,406 ns/iter (+/- 34,618)
+test emd::bench::bench_emd_60  ... bench:     186,968 ns/iter (+/- 36,237)
+test emd::bench::bench_emd_70  ... bench:     280,873 ns/iter (+/- 44,314)
+test emd::bench::bench_emd_80  ... bench:     275,569 ns/iter (+/- 115,778)
+test emd::bench::bench_emd_90  ... bench:     482,147 ns/iter (+/- 89,098)
+test emd::bench::bench_emd_100 ... bench:     833,342 ns/iter (+/- 145,012)
 ```
 
 just marshaling and prepare:
 
 ```
-test emd::bench::bench_emd_10  ... bench:         730 ns/iter (+/- 119)
-test emd::bench::bench_emd_20  ... bench:         986 ns/iter (+/- 449)
-test emd::bench::bench_emd_30  ... bench:       1,423 ns/iter (+/- 252)
-test emd::bench::bench_emd_40  ... bench:       1,708 ns/iter (+/- 263)
-test emd::bench::bench_emd_50  ... bench:       2,025 ns/iter (+/- 279)
-test emd::bench::bench_emd_60  ... bench:       2,276 ns/iter (+/- 1,014)
-test emd::bench::bench_emd_70  ... bench:       2,849 ns/iter (+/- 480)
-test emd::bench::bench_emd_80  ... bench:       2,796 ns/iter (+/- 1,167)
-test emd::bench::bench_emd_90  ... bench:       3,857 ns/iter (+/- 1,761)
-test emd::bench::bench_emd_100 ... bench:       3,862 ns/iter (+/- 1,792)
+cargo bench --features "dumb" -- --test-threads=1
+
+test emd::bench::bench_emd_10  ... bench:         573 ns/iter (+/- 246)
+test emd::bench::bench_emd_20  ... bench:         741 ns/iter (+/- 311)
+test emd::bench::bench_emd_30  ... bench:         986 ns/iter (+/- 429)
+test emd::bench::bench_emd_40  ... bench:       1,106 ns/iter (+/- 181)
+test emd::bench::bench_emd_50  ... bench:       1,259 ns/iter (+/- 238)
+test emd::bench::bench_emd_60  ... bench:       1,400 ns/iter (+/- 254)
+test emd::bench::bench_emd_70  ... bench:       1,352 ns/iter (+/- 579)
+test emd::bench::bench_emd_80  ... bench:       1,395 ns/iter (+/- 622)
+test emd::bench::bench_emd_90  ... bench:       1,521 ns/iter (+/- 294)
+test emd::bench::bench_emd_100 ... bench:       1,659 ns/iter (+/- 328)
 ```
