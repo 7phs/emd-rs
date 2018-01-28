@@ -1,4 +1,4 @@
-use wordvector_base::wordvector::WordVectorDistance;
+use wordvector_base::WordVectorDistance;
 use emd::emd;
 
 pub struct EmdDistance;

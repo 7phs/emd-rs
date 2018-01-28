@@ -1,7 +1,9 @@
 The Rust wrapper of EMD to calculate vectors distance.
 
-EMD idea and source code:
-http://ai.stanford.edu/%7Erubner/emd/default.htm
+The primary purpose of the project is an experiment for a bridge between Rust and native.
+
+[EMD idea and source code](http://ai.stanford.edu/%7Erubner/emd/default.htm).
+
 
 Run test in one thread:
 
