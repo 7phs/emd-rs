@@ -1,3 +1,5 @@
+The Golang wrapper of EMD to calculate vectors distance.
+
 EMD idea and source code:
 http://ai.stanford.edu/%7Erubner/emd/default.htm
 
